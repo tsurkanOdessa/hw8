@@ -18,3 +18,6 @@ class SubTask(models.Model):
         db_table = 'task_manager_subtask'
         verbose_name = 'SubTask'
         ordering = ['-created_at']
+        constraints = [
+            models.UniqueConstraint(fields=['title'], name='unique_subtask_title')
+        ]

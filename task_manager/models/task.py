@@ -24,3 +24,6 @@ class Task(models.Model):
         db_table = 'task_manager_task'
         verbose_name = 'Task'
         ordering = ['-created_at']
+        constraints = [
+            models.UniqueConstraint(fields=['title'], name='unique_task_title')
+        ]

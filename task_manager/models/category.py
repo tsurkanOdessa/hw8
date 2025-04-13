@@ -10,4 +10,6 @@ class Category(models.Model):
         db_table = 'task_manager_category'
         verbose_name = 'Category'
         verbose_name_plural = 'Categories'
-        ordering = ['name']
+        constraints = [
+            models.UniqueConstraint(fields=['name'], name='unique_category_name')
+        ]
